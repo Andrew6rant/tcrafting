@@ -57,8 +57,8 @@ public class TCraftingScreenHandler extends ScreenHandler {
             for (int j = 0; j < 8; j++) {
                 this.addSlot(new TRecipeSlot(this, resultInventory, playerInventory, counter++, 8 + j * 18, 18 + i * 18, View.CRAFTING) {
                     @Override
-                    public void onStackChanged(ItemStack originalItem, ItemStack itemStack) {
-                        super.onStackChanged(originalItem, itemStack);
+                    public void onQuickTransfer(ItemStack originalItem, ItemStack itemStack) {
+                        super.onQuickTransfer(originalItem, itemStack);
 
                         updateCraftingResults();
                     }
@@ -79,8 +79,8 @@ public class TCraftingScreenHandler extends ScreenHandler {
                         }
 
                         @Override
-                        public void onStackChanged(ItemStack originalItem, ItemStack itemStack) {
-                            super.onStackChanged(originalItem, itemStack);
+                        public void onQuickTransfer(ItemStack originalItem, ItemStack itemStack) {
+                            super.onQuickTransfer(originalItem, itemStack);
 
                             updateCraftingResults();
                         }
@@ -97,8 +97,8 @@ public class TCraftingScreenHandler extends ScreenHandler {
                     }
 
                     @Override
-                    public void onStackChanged(ItemStack originalItem, ItemStack itemStack) {
-                        super.onStackChanged(originalItem, itemStack);
+                    public void onQuickTransfer(ItemStack originalItem, ItemStack itemStack) {
+                        super.onQuickTransfer(originalItem, itemStack);
 
                         updateCraftingResults();
                     }
@@ -178,7 +178,7 @@ public class TCraftingScreenHandler extends ScreenHandler {
                     }
                 }
 
-                slot.onStackChanged(itemStack2, itemStack);
+                slot.onQuickTransfer(itemStack2, itemStack);
             } else if (invSlot >= 24 && invSlot < 51) {
                 // Shift click inside main screen
 

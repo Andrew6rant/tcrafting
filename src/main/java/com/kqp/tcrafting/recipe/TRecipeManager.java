@@ -268,7 +268,7 @@ public class TRecipeManager extends JsonDataLoader {
                     || recipe instanceof BlastingRecipe
                     || recipe instanceof SmokingRecipe
                     || recipe instanceof CampfireCookingRecipe) {
-                List<Ingredient> ingredientList = recipe.getPreviewInputs();
+                List<Ingredient> ingredientList = recipe.getIngredients();
                 HashMap<Reagent, Integer> reagents = new HashMap();
 
                 for (Ingredient ingredient : ingredientList) {

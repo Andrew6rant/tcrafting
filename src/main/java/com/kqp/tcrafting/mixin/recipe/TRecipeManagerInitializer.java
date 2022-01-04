@@ -31,7 +31,7 @@ public class TRecipeManagerInitializer implements TRecipeManagerContainer {
     public void construct(CallbackInfo callbackInfo) {
         this.tRecipeManager = new TRecipeManager(recipeManager);
 
-        resourceManager.registerListener(this.tRecipeManager);
+        resourceManager.registerReloader(this.tRecipeManager);
     }
 
     @Override

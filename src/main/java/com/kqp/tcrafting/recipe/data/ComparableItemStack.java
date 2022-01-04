@@ -3,8 +3,7 @@ package com.kqp.tcrafting.recipe.data;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
-
+import net.minecraft.nbt.NbtCompound;
 import java.util.Objects;
 
 /**
@@ -15,13 +14,13 @@ import java.util.Objects;
 public class ComparableItemStack {
     public final ItemStack itemStack;
     public final Item item;
-    public final CompoundTag tag;
+    public final NbtCompound tag;
     public final int hashCode;
 
     public ComparableItemStack(ItemStack itemStack) {
         this.itemStack = itemStack;
         this.item = itemStack.getItem();
-        this.tag = itemStack.getTag();
+        this.tag = itemStack.getNbt();
         this.hashCode = Objects.hash(item, tag);
     }
 

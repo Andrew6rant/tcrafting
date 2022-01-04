@@ -1,11 +1,11 @@
 plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
-	id "com.wynprice.cursemaven" version "2.1.5"
+	//id "com.wynprice.cursemaven" version "2.1.5"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = "${project.mod_version}-${project.minecraft_version}"
@@ -18,8 +18,12 @@ repositories {
 	}
 
 	maven {
-		url "http://server.bbkr.space:8081/artifactory/libs-release"
+	name = "CottonMC"
+		//url "https://server.bbkr.space:8081/artifactory/libs-release"
+		url = "https://server.bbkr.space/artifactory/libs-release"
 	}
+
+	maven { url "https://maven.shedaniel.me/" }
 
 	maven {
 		url "https://jitpack.io"
@@ -38,16 +42,22 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Auto Config
-	modImplementation "curse.maven:autoconfig:${project.autoconfig_version}"
-	modRuntime "curse.maven:autoconfig:${project.autoconfig_version}"
-	include "curse.maven:autoconfig:${project.autoconfig_version}"
+	//modImplementation "curse.maven:autoconfig:${project.autoconfig_version}"
+	//modRuntime "curse.maven:autoconfig:${project.autoconfig_version}"
+	//include "curse.maven:autoconfig:${project.autoconfig_version}"
 
 	// Inventory Tabs
-	modImplementation "com.github.cakewhip:inventorytabs:${project.inventorytabs_version}"
-	modRuntime "com.github.cakewhip:inventorytabs:${project.inventorytabs_version}"
+	//modImplementation "com.github.cakewhip:inventorytabs:${project.inventorytabs_version}"
+	//modRuntime "com.github.cakewhip:inventorytabs:${project.inventorytabs_version}"
+	modImplementation "com.github.Andrew6rant:inventorytabs:0.4.2-1.18.1"
+	modRuntime "com.github.Andrew6rant:inventorytabs:0.4.2-1.18.1"
 
 	// Testing
 	// modImplementation "TechReborn:TechReborn-1.16:3.4.5+build.88"
+
+	modApi("me.shedaniel.cloth:cloth-config-fabric:6.1.48") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 }
 
 processResources {

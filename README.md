@@ -33,7 +33,7 @@ Other than that, feel free to continue using vanilla recipes as TCrafting will a
 ### Dynamic Recipes
 Dynamic recipes are recipes that are generated every refresh of the crafting window and can use contextual information such as the player and their inventory to determine what recipes are available. Creating your own is as easy as implementing ``DynamicRecipe`` and registering it in ``DynamicRecipeRegistry``.
 
-To add TCrafting to your project, you need to add ``https://jitpack.io`` as a repo and ``com.github.cakewhip:tcrafting:mcA.B.C-vX.Y.Z`` as a dependency. For example:
+To add TCrafting to your project, you need to add ``https://jitpack.io`` as a repo and ``com.github.Andrew6rant:tcrafting:A.B.C-X.Y.Z`` as a dependency. For example:
 ```
 repositories {
 	maven {
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-	modImplementation "com.github.cakewhip:tcrafting:mcA.B.C-vX.Y.Z"
+	modImplementation "com.github.cakewhip:tcrafting:1.3.0-1.18.1"
 }
 ```
 
