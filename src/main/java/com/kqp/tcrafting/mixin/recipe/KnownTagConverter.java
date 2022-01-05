@@ -25,7 +25,8 @@ public class KnownTagConverter {
         TRecipeManager tRecipeManager = ((TRecipeManagerContainer) this).getTCraftingRecipeManager();
 
         tRecipeManager.clearKnownTags();
-        registryTagManager.getTagManager().getItems().getTags().forEach(tRecipeManager::loadTag);
+        //registryTagManager.getTagManager().getItems().getTags().forEach(tRecipeManager::loadTag);
+        registryTagManager.getTagManager();
         tRecipeManager.identifyKnownTags();
     }
 }

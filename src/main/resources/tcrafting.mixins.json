@@ -4,6 +4,8 @@
   "package": "com.kqp.tcrafting.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "accessor.InventoryAccessor",
+    "accessor.MinecraftClientAccessor",
     "accessor.MinecraftServerResourceAccessor",
     "accessor.ServerPlayerEntityAccessor",
     "recipe.IngredientHacker",

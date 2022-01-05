@@ -5,6 +5,7 @@ import com.kqp.tcrafting.api.TRecipeInterface;
 import com.kqp.tcrafting.api.TRecipeInterfaceRegistry;
 import com.kqp.tcrafting.api.TRecipeTypeRegistry;
 import com.kqp.tcrafting.client.screen.TCraftingScreen;
+import com.kqp.tcrafting.mixin.accessor.InventoryAccessor;
 import com.kqp.tcrafting.network.init.TCraftingNetwork;
 import com.kqp.tcrafting.recipe.TRecipeManager;
 import com.kqp.tcrafting.recipe.data.TRecipe;
@@ -52,7 +53,8 @@ public class CraftingSession {
     public CraftingSession(TCraftingScreenHandler screenHandler, PlayerEntity player) {
         this.screenHandler = screenHandler;
         this.player = player;
-        this.playerInventory = player.inventory;
+        //this.playerInventory = player.inventory;
+        this.playerInventory = ((InventoryAccessor)player).getInventory();
         this.isClient = player.world.isClient;
         this.tRecipeManager = TRecipeManager.getFor(player.world);
 

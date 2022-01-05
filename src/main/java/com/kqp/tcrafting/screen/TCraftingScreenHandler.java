@@ -1,6 +1,7 @@
 package com.kqp.tcrafting.screen;
 
 import com.kqp.tcrafting.init.TCrafting;
+import com.kqp.tcrafting.mixin.accessor.InventoryAccessor;
 import com.kqp.tcrafting.network.init.TCraftingNetwork;
 import com.kqp.tcrafting.screen.inventory.TCraftingRecipeLookUpInventory;
 import com.kqp.tcrafting.screen.inventory.TCraftingResultInventory;
@@ -150,7 +151,8 @@ public class TCraftingScreenHandler extends ScreenHandler {
         super.close(player);
 
         // Drop look up slot
-        player.inventory.offerOrDrop(player.world, lookUpInventory.removeStack(0));
+        //player.inventory.offerOrDrop(player.world, lookUpInventory.removeStack(0));
+        ((InventoryAccessor)player).getInventory().offerOrDrop(lookUpInventory.removeStack(0));
     }
 
     /**
@@ -214,9 +216,9 @@ public class TCraftingScreenHandler extends ScreenHandler {
                 return ItemStack.EMPTY;
             }
 
-            ItemStack itemStack3 = slot.onTakeItem(player, itemStack2);
+            //ItemStack itemStack3 = slot.onTakeItem(player, itemStack2);
             if (invSlot == 0) {
-                player.dropItem(itemStack3, false);
+                player.dropItem(itemStack2, false);
             }
         }
 

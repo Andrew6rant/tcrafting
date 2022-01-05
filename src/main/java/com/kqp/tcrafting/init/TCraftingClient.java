@@ -2,6 +2,7 @@ package com.kqp.tcrafting.init;
 
 import com.kqp.inventorytabs.api.TabProviderRegistry;
 import com.kqp.tcrafting.client.screen.TCraftingScreen;
+import com.kqp.tcrafting.mixin.accessor.MinecraftClientAccessor;
 import com.kqp.tcrafting.network.init.TCraftingClientNetwork;
 import com.kqp.tcrafting.network.init.TCraftingNetwork;
 import com.kqp.tcrafting.screen.TCraftingScreenHandler;
@@ -37,11 +38,12 @@ public class TCraftingClient implements ClientModInitializer {
 
         ClientTickEvents.START_CLIENT_TICK.register((client) -> {
             if (client.world != null && client.player != null) {
-                if (client.overlay == null && (client.currentScreen == null || client.currentScreen.passEvents)) {
+                //if (client.overlay == null && (client.currentScreen == null || client.currentScreen.passEvents)) {
+                //if (MinecraftClientAccessor.getOverlay() == null && (client.currentScreen == null || client.currentScreen.passEvents)) {
                     if (OPEN_CRAFTING_SCREEN_KEY_BIND.wasPressed()) {
                         triggerOpenCraftingMenu();
                     }
-                }
+                //}
             }
         });
 

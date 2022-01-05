@@ -86,10 +86,8 @@ public class TRecipeSlot extends Slot {
     }
 
     @Override
-    public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
+    public void onTakeItem(PlayerEntity player, ItemStack stack) {
         this.onCrafted(stack);
-
-        return stack;
     }
 
     /**

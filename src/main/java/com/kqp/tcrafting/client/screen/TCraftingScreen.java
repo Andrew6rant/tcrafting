@@ -3,6 +3,7 @@ package com.kqp.tcrafting.client.screen;
 import com.kqp.inventorytabs.tabs.TabManager;
 import com.kqp.tcrafting.init.TCrafting;
 import com.kqp.tcrafting.init.TCraftingClient;
+import com.kqp.tcrafting.mixin.accessor.InventoryAccessor;
 import com.kqp.tcrafting.network.init.TCraftingNetwork;
 import com.kqp.tcrafting.recipe.data.Reagent;
 import com.kqp.tcrafting.recipe.data.TRecipe;
@@ -149,7 +150,8 @@ public class TCraftingScreen extends HandledScreen<TCraftingScreenHandler> {
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
         this.textRenderer.draw(matrices, this.title, 8.0F, 8.0F, 4210752);
         this.textRenderer.draw(matrices, new TranslatableText(RECIPE_LOOK_UP_TRANSLATION_KEY), 186.0F, 8.0F, 4210752);
-        this.textRenderer.draw(matrices, this.playerInventory.getDisplayName(), 8.0F, (float) (this.backgroundHeight - 96 + 4), 4210752);
+        //this.textRenderer.draw(matrices, this.playerInventory.getDisplayName(), 8.0F, (float) (this.backgroundHeight - 96 + 4), 4210752);
+        this.textRenderer.draw(matrices, this.playerInventoryTitle.asOrderedText(), 8.0F, (float) (this.backgroundHeight - 96 + 4), 4210752);
 
         renderAvailabilities(matrices);
     }
@@ -158,7 +160,8 @@ public class TCraftingScreen extends HandledScreen<TCraftingScreenHandler> {
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         tabManager.tabRenderer.renderBackground(matrices);
 
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderTexture(0, TEXTURE);
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
 
